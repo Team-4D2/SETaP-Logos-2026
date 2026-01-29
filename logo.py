@@ -6,6 +6,15 @@ def make_e(t,radius=100):
 	t.teleport(p[0]-2*radius,p[1])
 	t.right(90)
 	t.forward(2*radius)
+	
+def make_d(t, radius, p_bottom_of_d):
+	t.teleport(p_bottom_of_d[0] - radius,p_bottom_of_d[1])
+	t.circle(radius)
+	t.teleport(p_bottom_of_d[0], p_bottom_of_d[1])
+	t.right(270)
+	t.forward(190)
+
+# turtle init + U
 
 t = turtle.Turtle() 
 
@@ -40,7 +49,25 @@ t.teleport(p[0]+80,p[1]-35)
 make_e(t,radius=50)
 
 p=t.pos()
-t.teleport(p[0]+80, p[1] - 50)
+t.teleport(p[0] + 80, p[1] - 50)
 make_e(t, radius=50)
+
+# d
+
+p = t.pos()
+t.teleport(p[0] + 80, p[1] - 100)
+print(t.pos())
+p = t.pos()
+make_d(t, 40, p)
+
+# end
+
+t.penup()
+t.shape('turtle')
+t.color('green')
+p=t.circle(250, extent = 495)
+
+t.write('made with turtle.py')
+t.isvisible()
 
 input()
